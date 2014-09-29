@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p><%= @space.number %> <%= @space.street %> <%= @space.suburb %> <%= @space.postcode %> <%= @space.state %> <%= @space.country %> (<%= link_to 'Edit', edit_space_path(@space) %>)
+</p>
+
+<p>Upcoming bookings:</p>
+
+<ul>
+  <% @bookings.each do |booking| %>
+    <li><%= booking.user.account.first_name booking.self_booking booking.day_of_week booking.date (booking.start_time booking.end_time) %></li>
+  <% end %>
+</ul>
+
+<p><%= link_to 'Book your space', new_booking_path %></p>
